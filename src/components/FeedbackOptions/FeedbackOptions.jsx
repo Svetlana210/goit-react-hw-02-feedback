@@ -11,7 +11,7 @@ const FeedbackOptions = ({ options, onButtonClick }) => {
           name={name}
           className={styles.button}
         >
-          Good
+          {name}
         </button>
       </li>
     );
