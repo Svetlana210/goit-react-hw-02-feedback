@@ -12,8 +12,7 @@ export class App extends Component {
     bad: 0,
   };
 
-  onButtonClick = e => {
-    const { name } = e.target;
+  onButtonClick = name => {
     this.setState(prevState => {
       return { [name]: prevState[name] + 1 };
     });
@@ -27,11 +26,7 @@ export class App extends Component {
 
   countPositivePercent() {
     const good = this.state.good;
-
     const totalFeedback = this.countTotalFeedback();
-    // if (!totalFeedback) {
-    //   return 0;
-    // }
     const result = ((good / totalFeedback) * 100).toFixed(2);
     return Number(result);
   }
@@ -48,7 +43,7 @@ export class App extends Component {
           <FeedbackOptions
             options={options}
             onButtonClick={this.onButtonClick}
-          ></FeedbackOptions>
+          />
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() ? (
@@ -58,9 +53,9 @@ export class App extends Component {
               bad={bad}
               total={total}
               positivePercent={positivePercent}
-            ></Statistics>
+            />
           ) : (
-            <Notification message="There is no feedback"></Notification>
+            <Notification message="There is no feedback" />
           )}
         </Section>
       </div>

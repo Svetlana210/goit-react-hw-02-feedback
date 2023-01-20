@@ -6,7 +6,7 @@ const FeedbackOptions = ({ options, onButtonClick }) => {
     return (
       <li key={name}>
         <button
-          onClick={onButtonClick}
+          onClick={() => onButtonClick(name)}
           type="button"
           name={name}
           className={styles.button}
